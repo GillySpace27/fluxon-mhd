@@ -303,6 +303,7 @@ VERTEX *new_vertex(long label, NUM x, NUM y, NUM z, FLUXON *fluxon) {
   tp = (VERTEX *)localmalloc(sizeof(VERTEX),MALLOC_VERTEX);
 
   tp->energy = 0;
+  tp->r_cl = 0;				/* read by fix_proximity before the first update_force */
 
   if(!tp) barf(BARF_MALLOC,"new_vertex");
   tp->line = fluxon;
